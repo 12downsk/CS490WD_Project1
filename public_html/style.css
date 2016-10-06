@@ -1,0 +1,31 @@
+.headerBackground{
+    background-color: gray;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;   
+}
+
+.logo_title{
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+
+.logo_title.img{
+    width:100px;
+    height: 100px;
+}
+
+.logo{
+    
+}
+
+.site_title{
+    font-family: Oleo;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.searchbar{
+    width: 40%;
+}
