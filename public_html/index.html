@@ -13,27 +13,43 @@ and open the template in the editor.
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
+        <script src="data/movies.js"></script>
+        <script src="functions.js"></script>
     </head>
     <body>
 	<div id="HeaderContainer">
 	    <div class="headerBackground">
-		<div class="logo_title">
-		    <img src="img/movie.png">
-                    <span class="site_title">Rent A Movie</span>
-		    
-		</div>
-		<div class="searchbar">
-		    <input type="text" class="form-control">
-		    <input type="button" class="btn btn-primary">
-		</div>
+                <div class="headerContent">
+                    <div class="logo_title">
+                        <img  class="logo" src="img/movie.png">
+                        <span class="title">Rent A Movie</span>
+                    </div>
+                    <div class="searchbar">
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">Search</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
 	    </div>
-	    <div>
-		<div id="sortingOptions"></div>
-		<div id="viewOptions"></div>
+            <div class="optionContainer">
+                <div class="sortingOptions form-group">
+                    <label for="sort">Sort By: </label>
+                    <select id="sort" class="form-control" >
+                        <option value="0">Year</option>
+                        <option value="1">Rating</option>
+                    </select>
+                </div>
+                <div class="btn-group viewOptions">
+                    <button id="gridView" type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span></button>
+                    <button id="listView" type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-list"></span></button>
+                </div>
 	    </div>
 	</div>
 	<div id="movieListContainer">
-	    	    
+            
 	</div>
     </body>
 </html>

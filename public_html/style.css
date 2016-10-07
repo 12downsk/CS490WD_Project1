@@ -1,31 +1,69 @@
 .headerBackground{
-    background-color: gray;
+    background-color:  #f4f4f4;
     width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;   
+    position: fixed;
+    top: 0;
+    height: 90px; 
+    
+    
+}
+
+.headerContent{
+
 }
 
 .logo_title{
     padding-left: 50px;
-    padding-right: 50px;
-    
-}
-
-.logo_title.img{
-    width:100px;
-    height: 100px;
-}
-
-.logo{
-    
-}
-
-.site_title{
-    font-family: Oleo;
-    font-weight: bold;
-    font-size: 18pt;
+    float: left;
+    margin-bottom: 0px;
 }
 
 .searchbar{
-    width: 40%;
+    width: 100%;
+    max-width: 470px;
+    position: relative;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+    margin-top: -15px;
+}
+
+.title{
+    font-family: Oleo;
+    font-size: 18pt;
+    font-weight: bold;
+    
+}
+
+.optionContainer{
+    display: inline;
+}
+
+.viewOptions{
+    margin-top:90px;
+    position: relative;
+    top: 20px;
+    right: 5%;
+    float: right;
+    
+}
+
+.sortingOptions{
+    margin-top: 90px;
+    position: relative;
+    top: 20px;
+    left: 5%;
+    width: fit-content;
+    float: left;
+}
+@font-face{
+    font-family: Oleo;
+    src: url(fonts/Oleo.woff);
 }
