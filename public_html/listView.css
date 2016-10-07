@@ -1,27 +1,57 @@
 .movieItem{
-    
+    height: 260px;
+    border: 1px solid rgb(245,245,245);
+    width: 95%;
+   
 }
 
 .movieFrame{
-    
+    height: 220px;
+    width: 220px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.movieFrame img{
+    height: 220px;
+    width: 220px;
+    padding: 5px 5px 5px 5px;
 }
 
 .title{
-    
+    position: relative;
+    margin-top: 10px;
+    left: 235px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .year{
-    
+    font-size: 15px;
+    color: gray;
 }
 
 .desc{
-    
+    overflow: hidden;
+    line-height: 1.5;
+    width: 450px;
+    background-color: rgb(236,255,255);
 }
 
 .star{
-    
+    height: 20px;
+    width: 20px;
 }
 
 .hd{
-    
+    position: relative;
+    top: -185px;
+    left: 15px;
+}
+
+.hd img{
+    height: 30px;
+    width: 40px;
+    margin-bottom: -30px;
 }
