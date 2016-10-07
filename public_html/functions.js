@@ -1,7 +1,8 @@
 $(document).ready(function(){
-   $("#movieListContainer").html(generatePage(movies,0,0)); //Initialize with all movies shown, in the grid view, sorted by year
    $("#listView").on("click",listview);
    $("#gridView").on("click",gridview);
+   $("#sort").on("change",generatePage(movies,this.value));
+   $("#movieListContainer").html(generatePage(movies,0)); //Initialize with all movies shown, in the grid view, sorted by year
 });
 
 function listview(){
@@ -21,25 +22,26 @@ function search(input){
     
 }
 
-function generatePage(data,sorting,viewMode){
+function generatePage(data,sorting){
     //sort the data, then iterate through it generating a chunk of html
     //for each movie
-    if(sorting==0){//by year
-        data["movies"].sort(function(a,b){return a.year - b.year;});
+    console.log(sorting);
+    if(sorting===0){//by year
+        data["movies"].sort(function(a,b){return b.year - a.year;});
     }
     else{//by rating
-        data.sort(function(a,b){return a.rating - b.rating});
+        data["movies"].sort(function(a,b){return b.rating - a.rating;});
     }
     var htmlString = "";
     $.map(data["movies"],function(movie,index){
         
-        htmlString += template(movie.title,movie.year,movie.starring,movie.description,movie.HD,movie.photo,movie.rating,viewMode);
+        htmlString += template(movie.title,movie.year,movie.starring,movie.description,movie.HD,movie.photo,movie.rating);
     });
     
     $("#movieListContainer").html(htmlString);
 }
 
-function template(title,year,starring,description,HD,photo,rating,viewMode){
+function template(title,year,starring,description,HD,photo,rating){
     var HDimgPath = "";
     var ratingCode = "";
     if(HD){
@@ -56,13 +58,14 @@ function template(title,year,starring,description,HD,photo,rating,viewMode){
     }
 
     return "<div class=\"movieItem\">"+
-            "<div>"+
-                "<img class=\"movieFrame\" src=\""+photo+"\">"+HDimgPath+
+            "<div class=\"movieIMGS\">"+
+                "<img class=\"movieFrame\" src=\""+photo+"\">"+
+                HDimgPath+
             "</div>"+
             "<div class=\"info\">"+
-                "<p class=\"title\">"+title+"<span class=\"year\">("+year+"</span></p>"+
+                "<p class=\"title\">"+title+"<span class=\"year\">("+year+")</span></p>"+
                 "<p><b>Starring: </b>"+ starring +"</p>"+
-                "<p><b>Rating</b>"+ratingCode+"</p>"+
+                "<p class=\"rating\"><b>Rating</b>"+ratingCode+"</p>"+
                 "<p class=\"desc\">"+description+"</p>"+
             "</div>"+
         "</div>"
