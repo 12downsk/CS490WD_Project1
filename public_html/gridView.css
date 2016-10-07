@@ -4,28 +4,27 @@
     margin-top: 30px;
     margin-left: 30px;
     border: 1px solid lightgray;
-    display: inline-block;
     float: left;
     border-radius: 3px;
     position: relative;
+    display: inline;
 }
 
 .movieFrame{
-    height: 200px;
-    width: 200px;
-    padding: 5px 5px 5px 5px;
+
     position: relative;
     top: 0px;
     left: 0;
     
 }
 
-.movieIMGS{
-    position: relative;
-    top: 0;
+.movieFrame img{
+    height: 200px;
+    width: 200px;
+    padding: 5px 5px 5px 5px;
 }
 
-.info{
+.movieIMGS{
     position: relative;
     top: 0;
 }
@@ -36,13 +35,16 @@
     margin-left: 5px;
     background-color: black;
     opacity: .4;
+    font-size: 16px;
     text-align: center;
     color: white;
-    bottom: 0;
+    position: relative;
+    bottom: 45px;
 }
 
 .year{
-    
+    font-size: 13px;
+    color: gray;
 }
 
 .desc{
@@ -59,10 +61,43 @@
 }
 
 .hd{
+    position: relative;
+    top: -185px;
+    left: 15px;
+    margin-bottom: -30px;
+}
+
+.hd img{
     height: 30px;
     width: 40px;
-    position: relative;
-    top: 15px;
-    left: 15px;
-    margin-top: -400px;
+}
+
+.starring{
+    visibility: hidden;
+    font-size: 10px;
+}
+
+/*Hover effects*/
+
+.movieItem:hover .title{
+    height: 120px;
+    margin-top: -80px;
+}
+
+.movieItem:hover .hd{
+    margin-bottom: -110px;
+}
+
+.movieItem:hover .starring{
+    visibility: visible;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: -85px;
+    color: white;
+    background-color: black;
+    opacity: .7;
+    height: 40px;
+    width: 190px;
+    text-align: left;
+    margin-left: 5px;
 }

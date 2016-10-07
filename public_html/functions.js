@@ -45,7 +45,7 @@ function template(title,year,starring,description,HD,photo,rating){
     var HDimgPath = "";
     var ratingCode = "";
     if(HD){
-        HDimgPath = "<img src=\"img/HD.png\" class=\"hd\">";
+        HDimgPath = "<div class=\"hd\"><img src=\"img/HD.png\"></div>";
     }
     else{
         HDimgPath = "";
@@ -58,16 +58,12 @@ function template(title,year,starring,description,HD,photo,rating){
     }
 
     return "<div class=\"movieItem\">"+
-            "<div class=\"movieIMGS\">"+
-                "<img class=\"movieFrame\" src=\""+photo+"\">"+
-                HDimgPath+
-            "</div>"+
-            "<div class=\"info\">"+
-                "<p class=\"title\">"+title+"<span class=\"year\">("+year+")</span></p>"+
-                "<p><b>Starring: </b>"+ starring +"</p>"+
-                "<p class=\"rating\"><b>Rating</b>"+ratingCode+"</p>"+
-                "<p class=\"desc\">"+description+"</p>"+
-            "</div>"+
-        "</div>"
+           "<div class=\"movieFrame\"><img src=\""+photo+"\"></div>"+    
+            HDimgPath+
+            "<div class=\"title\">"+title+"<span class=\"year\"> ("+year+")</span></div>"+
+            "<div class=\"starring\"><b>Starring:<br> </b>"+ starring +"</div>"+
+            "<div class=\"rating\"><b>Rating</b>"+ratingCode+"</div>"+
+            "<div class=\"desc\">"+description+"</div>"+
+            "</div>";
 
 }
