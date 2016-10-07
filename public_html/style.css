@@ -10,8 +10,8 @@
     
 }
 
-.headerContent{
-
+.HeaderContainer{
+    height:90px;
 }
 
 .logo_title{
@@ -35,7 +35,7 @@
     margin-top: -15px;
 }
 
-.title{
+.siteTitle{
     font-family: Oleo;
     font-size: 18pt;
     font-weight: bold;
@@ -43,7 +43,7 @@
 }
 
 .optionContainer{
-    display: inline;
+    height: 30px;
 }
 
 .viewOptions{
@@ -60,8 +60,13 @@
     position: relative;
     top: 20px;
     left: 5%;
-    width: fit-content;
+    width: auto;
     float: left;
+}
+
+.movieListContainer{
+    margin-top: 30px;
+    
 }
 @font-face{
     font-family: Oleo;

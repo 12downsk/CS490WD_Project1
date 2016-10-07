@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
 	<title>Rent A Movie</title>
@@ -13,6 +8,7 @@ and open the template in the editor.
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" id="viewModeSheet" href="gridView.css">
         <script src="data/movies.js"></script>
         <script src="functions.js"></script>
     </head>
@@ -22,7 +18,7 @@ and open the template in the editor.
                 <div class="headerContent">
                     <div class="logo_title">
                         <img  class="logo" src="img/movie.png">
-                        <span class="title">Rent A Movie</span>
+                        <span class="siteTitle">Rent A Movie</span>
                     </div>
                     <div class="searchbar">
                         <div class="input-group">
@@ -43,7 +39,7 @@ and open the template in the editor.
                     </select>
                 </div>
                 <div class="btn-group viewOptions">
-                    <button id="gridView" type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span></button>
+                    <button id="gridView" type="button" class="btn btn-default active"><span class="glyphicon glyphicon-th-large"></span></button>
                     <button id="listView" type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-list"></span></button>
                 </div>
 	    </div>
