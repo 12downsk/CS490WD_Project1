@@ -37,7 +37,7 @@ function generatePage(data,sorting){
         
         htmlString += template(movie.title,movie.year,movie.starring,movie.description,movie.HD,movie.photo,movie.rating);
     });
-    
+    console.log(htmlString);
     $("#movieListContainer").html(htmlString);
 }
 
@@ -60,10 +60,10 @@ function template(title,year,starring,description,HD,photo,rating){
     return "<div class=\"movieItem\">"+
            "<div class=\"movieFrame\"><img src=\""+photo+"\"></div>"+    
             HDimgPath+
-            "<div class=\"title\">"+title+"<span class=\"year\"> ("+year+")</span></div>"+
+            "<div class=\"info\"><div class=\"title\">"+title+"<span class=\"year\"> ("+year+")</span></div>"+
             "<div class=\"starring\"><b>Starring:<br> </b>"+ starring +"</div>"+
-            "<div class=\"rating\"><b>Rating</b>"+ratingCode+"</div>"+
+            "<div class=\"rating\"><b>Rating:</b>"+ratingCode+"</div>"+
             "<div class=\"desc\">"+description+"</div>"+
-            "</div>";
+            "</div></div>";
 
 }
