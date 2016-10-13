@@ -1,4 +1,8 @@
 $(document).ready(function(){
+   $("#search").focus(function(){$("#liveResults").addClass("showLiveResults");$("#liveResults").removeClass("hideLiveResults");});
+   $("#search").blur(function(){$("#liveResults").removeClass("showLiveResults");$("#liveResults").removeClass("showLiveResults");});
+   $("#search").on('keyup',function(){liveSearch();});
+   $("#searchbutton").on('click',searchResults());
    $("#listView").on("click",listview);
    $("#gridView").on("click",gridview);
    $("#sort").on("change",generatePage(movies,this.value));
@@ -18,14 +22,58 @@ function gridview(){
     
 }
 
-function search(input){
+
+
+function search(){
+    var term = $("#search").val();
+    var results = [];
     
+    if(term==="")
+        return movies["movies"];
+    
+    $.map(movies["movies"],function(movie,index){
+        if(match(term, movie))
+            results.push(movie);
+    });
+    
+    return results;
+}
+
+function match(term, movie){
+    if(movie.title.search(term.trim()))
+        return true;
+    else if(movie.year == parseInt(term.trim()))
+        return true;
+    else if(movie.starring.search(term.trim()))
+        return true;
+    else
+        return false;
+}
+
+function liveSearch(){
+
+    var html = "";
+    var results = search();
+    $.each(results, function(index, value){
+        html += "<div><b>" + value.title + "</b> (" + value.year + ") " + value.starring + "</div>";
+    });
+    $("#liveResults").html(html);
+}
+
+function searchResults(){
+    var results = search();
+    var html = "";
+    $.each(results, function(index, value){
+        html += template(value.title,value.year,value.starring,value.description,value.HD,value.photo,value.rating);
+    });
+
+    $("#movieListContainer").html(html);
 }
 
 function generatePage(data,sorting){
     //sort the data, then iterate through it generating a chunk of html
     //for each movie
-    console.log(sorting);
+
     if(sorting===0){//by year
         data["movies"].sort(function(a,b){return b.year - a.year;});
     }
@@ -37,7 +85,7 @@ function generatePage(data,sorting){
         
         htmlString += template(movie.title,movie.year,movie.starring,movie.description,movie.HD,movie.photo,movie.rating);
     });
-    console.log(htmlString);
+
     $("#movieListContainer").html(htmlString);
 }
 
