@@ -96,10 +96,6 @@
     display: none;
 }
 
-.hideLiveResults > div{
-    display: none;
-}
-
 @font-face{
     font-family: Oleo;
     src: url(fonts/Oleo.woff);
@@ -110,5 +106,4 @@
 }
 .result:hover{
     background-color: rgb(245,245,245);
-    z-index: 5;
 }

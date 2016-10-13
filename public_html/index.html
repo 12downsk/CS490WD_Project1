@@ -25,7 +25,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" id="search">
                             <span class="input-group-btn">
-                                <button class="btn btn-primary " id='searchbutton' type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                <button class="btn btn-primary" id="searchbutton" type="button"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
                         </div>
 			<div class="liveResults" id="liveResults">
@@ -36,10 +36,10 @@
 	    </div>
             <div class="optionContainer">
                 <div class="sortingOptions form-group">
-                    <label for="sort" style="display:inline-block;">Sort By: 
-                    <select id="sort" class="form-control" >
-                        <option value="0">Year</option>
-                        <option value="1">Rating</option>
+                    <label for="sort" style="display:inline-block; padding-left:20px; width: 250px;">Sort By: 
+                    <select id="sort" class="form-control" style="width: 120px;">
+                        <option value="0" id="sortByYear">Year</option>
+                        <option value="1" id="sortByRating">Rating</option>
                     </select></label>
                 </div>
                 <div class="btn-group viewOptions">

@@ -1,11 +1,25 @@
 $(document).ready(function(){
-   $("#search").focus(function(){$("#liveResults").addClass("showLiveResults");$("#liveResults").removeClass("hideLiveResults");});
-   $("#search").blur(function(){$("#liveResults").removeClass("showLiveResults");$("#liveResults").removeClass("showLiveResults");});
+   $("#search").focus(function(){
+       $("#liveResults").addClass("showLiveResults");
+       $("#liveResults").removeClass("hideLiveResults");
+   });
+   
+   $("#search").blur(function(){
+       $("#liveResults").removeClass("showLiveResults");
+       $("#liveResults").addClass("hideLiveResults");
+       
+   });
+   
    $("#search").on('keyup',function(){liveSearch();});
-   $("#searchbutton").on('click',searchResults());
+   
+   $("#searchbutton").on("click",searchResults);
+   
    $("#listView").on("click",listview);
+   
    $("#gridView").on("click",gridview);
-   $("#sort").on("change",generatePage(movies,this.value));
+   
+   $("#sort").change(function(){generatePage(movies,$(this).val())});
+   
    $("#movieListContainer").html(generatePage(movies,0)); //Initialize with all movies shown, in the grid view, sorted by year
 });
 
@@ -29,7 +43,7 @@ function search(){
     var results = [];
     
     if(term==="")
-        return movies["movies"];
+        return;
     
     $.map(movies["movies"],function(movie,index){
         if(match(term, movie))
@@ -40,11 +54,11 @@ function search(){
 }
 
 function match(term, movie){
-    if(movie.title.search(term.trim()))
+    if(movie.title.search(term.trim()) != -1)
         return true;
-    else if(movie.year == parseInt(term.trim()))
+    else if(movie.year.toString().search(term.trim()) != -1)
         return true;
-    else if(movie.starring.search(term.trim()))
+    else if(movie.starring.search(term.trim()) != -1)
         return true;
     else
         return false;
@@ -55,7 +69,7 @@ function liveSearch(){
     var html = "";
     var results = search();
     $.each(results, function(index, value){
-        html += "<div><b>" + value.title + "</b> (" + value.year + ") " + value.starring + "</div>";
+        html += "<div class=\"result\"><b>" + value.title + "</b> (" + value.year + ") " + value.starring + "</div>";
     });
     $("#liveResults").html(html);
 }
@@ -66,23 +80,25 @@ function searchResults(){
     $.each(results, function(index, value){
         html += template(value.title,value.year,value.starring,value.description,value.HD,value.photo,value.rating);
     });
-
     $("#movieListContainer").html(html);
+}
+
+function sort(data,sorting){
+    if(sorting==0){//by year
+        return data["movies"].sort(function(a,b){return b.year - a.year;});
+    }
+    else{//by rating
+        return data["movies"].sort(function(a,b){return b.rating - a.rating;});
+    }
 }
 
 function generatePage(data,sorting){
     //sort the data, then iterate through it generating a chunk of html
     //for each movie
-
-    if(sorting===0){//by year
-        data["movies"].sort(function(a,b){return b.year - a.year;});
-    }
-    else{//by rating
-        data["movies"].sort(function(a,b){return b.rating - a.rating;});
-    }
+    var movies = sort(data, sorting);
+    
     var htmlString = "";
-    $.map(data["movies"],function(movie,index){
-        
+    $.map(movies,function(movie,index){
         htmlString += template(movie.title,movie.year,movie.starring,movie.description,movie.HD,movie.photo,movie.rating);
     });
 
